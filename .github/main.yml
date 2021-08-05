@@ -15,6 +15,6 @@ jobs:
         project_name: "My Project Name"
       env:
         # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
-        SOOS_CLIENT_ID: ${{ secrets.SOOS_CLIENT_ID }}
-        SOOS_API_KEY: ${{ secrets.SOOS_API_KEY }}
+        SOOS_CLIENT_ID: ${{d7dfb7ca7b58f9bf96c11e8b9c881d6eaa0a99dd5bbb9565cb0254ef12f5012f}}
+        SOOS_API_KEY: ${{ODBmZmM0MTAtMzA0ZS00YmMyLThjNDgtY2ZlOTA1MDcwYjZl}}
         

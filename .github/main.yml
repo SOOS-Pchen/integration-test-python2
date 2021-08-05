@@ -12,7 +12,7 @@ jobs:
     - name: Run SOOS - Scan for vulnerabilities
       uses: SOOS/actions/github-action@main
       with:
-        project_name: "My Project Name"
+        project_name: "Nice Project Bro"
       env:
         # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
         SOOS_CLIENT_ID: ${{d7dfb7ca7b58f9bf96c11e8b9c881d6eaa0a99dd5bbb9565cb0254ef12f5012f}}

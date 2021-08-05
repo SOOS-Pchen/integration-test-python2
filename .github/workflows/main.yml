@@ -1,5 +1,4 @@
 name: Example workflow using SOOS
-# Events required to engage workflow (add/edit this list as needed)
 on: push
 jobs:
   synchronous-analysis-with-blocking-result:
@@ -10,10 +9,11 @@ jobs:
     - uses: actions/checkout@master
 
     - name: Run SOOS - Scan for vulnerabilities
-      uses: PackageAware/actions/github-action@main
+      uses: SOOS/actions/github-action@main
       with:
-        project_name: "Cool Project, Bro"
-      env:
+        project_name: "Cool Project Bro"
+        directories_to_exclude: "custom/bin/, custom/etc/bin/"
+    env:
         # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services
         SOOS_CLIENT_ID: ${{ secrets.SOOS_CLIENT_ID }}
         SOOS_API_KEY: ${{ secrets.SOOS_API_KEY }}

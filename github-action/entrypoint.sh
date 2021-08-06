@@ -82,7 +82,7 @@ curl --url https://api.github.com/repos/soos.io/soos-ci-analysis-python/releases
 #sha256sum -c pa-requirements.sha256
 
 # Install SOOS Requirements
-pip install -r pa-requirements.txt
+pip install -r requirements.txt
 
 cd ${GITHUB_WORKSPACE}
 

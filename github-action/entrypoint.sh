@@ -78,11 +78,11 @@ cd ${GITHUB_WORKSPACE}/soos/workspace
 #sha256sum -c requirements.sha256
 #cd ${GITHUB_WORKSPACE}/package_aware/workspace
 curl -s https://api.github.com/repos/PackageAware/pa-integration-python/releases/latest | grep "browser_download_url" | cut -d '"' -f 4 | xargs -n 1 curl -LO
-sha256sum -c packageaware.sha256
-sha256sum -c pa-requirements.sha256
+#sha256sum -c packageaware.sha256
+#sha256sum -c pa-requirements.sha256
 
 # Install SOOS Requirements
-pip install -r requirements.txt
+pip install -r pa-requirements.txt
 
 cd ${GITHUB_WORKSPACE}
 

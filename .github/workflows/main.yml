@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@master
 
     - name: Run SOOS - Scan for vulnerabilities
-      uses: soos-io/soos-ci-analysis-github-actions@main
+      uses: SOOS-Pchen/integration-test-python2/github-action@master
       with:
         project_name: "Cool Project, Bro"
         directories_to_exclude: "custom/bin/, custom/etc/bin/"

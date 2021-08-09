@@ -99,7 +99,7 @@ class SOOSStructureAPI:
                     requests.post(
                         url=api_url,
                         data=json.dumps(structure_api_data),
-                        headers={'x-pa-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
+                        headers={'x-soos-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
                     )
                 )
                 break
@@ -349,6 +349,8 @@ class SOOSManifestAPI:
 
     def exec(soos_context, project_id, analysis_id, manifest_label, manifest_name, manifest_content):
 
+        soos_context.print_invalid()
+
         manifest_name = manifest_name.replace(".", "*")
         manifest_label = manifest_label.replace(".", "").replace("/", "").replace("\\", "")
 
@@ -503,8 +505,6 @@ class SOOS:
 
                             if len(content.strip()) > 0:
 
-                                print("\nManifest Content:\n\n", content, end="\n\n")
-                                
                                 response = SOOSManifestAPI.exec(
                                     soos_context=soos.context,
                                     project_id=project_id,

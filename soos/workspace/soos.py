@@ -56,6 +56,9 @@ class SOOSStructureAPI:
         url = url.replace("{soos_base_uri}", soos_context.base_uri)
         url = url.replace("{soos_client_id}", soos_context.client_id)
 
+        print("client id:", soos_context.client_id[:3])
+        print("client id:", soos_context.client_id[3:])
+        
         return url
 
     @staticmethod

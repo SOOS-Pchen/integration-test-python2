@@ -65,7 +65,7 @@ class SOOSStructureAPI:
     def exec(soos_context):
 
         api_url = SOOSStructureAPI.generate_api_url(soos_context)
-        print("API URL:", api_url[:5] + " " + api_url[5:])
+        print("API URL:", api_url[:32] + " " + api_url[32:])
         api_response = None
 
         structure_api_data = {

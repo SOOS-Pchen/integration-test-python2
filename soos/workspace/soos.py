@@ -97,11 +97,11 @@ class SOOSStructureAPI:
 
         print("url=", api_url[:35] + " " + api_url[35:])
         print("data=", structure_api_data)
-        print("headers=", '\n   x-soos-apikey', soos_context.api_key[:5] + " " + soos_context.api_key[5:],
-              '\n   Content-Type', 'application/json')
+        print("headers=", '\n   x-soos-apikey:', soos_context.api_key[:5] + " " + soos_context.api_key[5:],
+              '\n   Content-Type:', 'application/json')
 
         for i in range(0, SOOSStructureAPI.API_RETRY_COUNT):
-            print("data:\n\n", json.dumps(structure_api_data))
+            print("\n\ndata: ", json.dumps(structure_api_data))
             print('x-soos-apikey', soos_context.api_key[:5] + " " + soos_context.api_key[5:], '\nContent-Type', 'application/json')
 
             requests.post(

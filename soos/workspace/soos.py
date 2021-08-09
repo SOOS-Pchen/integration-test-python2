@@ -30,7 +30,7 @@ class SOOSStructureAPIResponse:
         self.report_status_url = None
 
         if self.original_response is not None:
-
+            print("Loading original response.content...: ", self.original_response.content)
             self.content_object = json.loads(self.original_response.content)
 
             self.structure_id = self.content_object["Id"]

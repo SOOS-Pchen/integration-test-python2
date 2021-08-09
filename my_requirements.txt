@@ -1,6 +1,6 @@
 absl-py==0.6.6
 adal==0.5.3
-appnope==0.1.0
+appnope==0.1.1
 asn1crypto==0.24.0
 astor==0.7.1
 azure==3.0.1

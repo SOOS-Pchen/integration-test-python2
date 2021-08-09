@@ -1031,9 +1031,10 @@ if __name__ == "__main__":
 
     if soos.script.mode in (SOOSModeOfOperation.RUN_AND_WAIT, SOOSModeOfOperation.ASYNC_INIT):
 
+        print (soos.context)
         # Make API call and store response
         structure_response = SOOSStructureAPI.exec(soos.context)
-
+        
         if structure_response.original_response is None:
             SOOS.console_log("A Structure API error occurred: Could not execute API.")
             if soos.script.on_failure == SOOSOnFailure.FAIL_THE_BUILD:

@@ -107,6 +107,8 @@ class SOOSStructureAPI:
                         headers={'x-soos-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
                     )
                 )
+
+                print('x-soos-apikey:', soos_context.api_key[:5] + ' ' + soos_context.api_key[5:])
                 break
 
             except Exception as e:

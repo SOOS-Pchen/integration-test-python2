@@ -101,6 +101,12 @@ class SOOSStructureAPI:
             print("data:\n\n", json.dumps(structure_api_data))
             print('x-soos-apikey', soos_context.api_key[:5] + " " + soos_context.api_key[5:], '\nContent-Type', 'application/json')
 
+            requests.post(
+                url=api_url,
+                data=json.dumps(structure_api_data),
+                headers={'x-soos-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
+            )
+
             api_response = SOOSStructureAPIResponse(
                 requests.post(
                     url=api_url,
@@ -568,6 +574,7 @@ class SOOS:
             response = SOOSAnalysisResultAPI.exec(self.context, report_status_url)
 
             content_object = json.loads(response.content)
+            print("response content", response.content)
 
             if response.status_code < 300:
 

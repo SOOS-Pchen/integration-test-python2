@@ -108,8 +108,9 @@ class SOOSStructureAPI:
                     headers={'x-soos-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
                 )
             )
+            print(api_response)
 
-
+        
         return api_response
 
 

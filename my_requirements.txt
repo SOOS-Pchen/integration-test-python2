@@ -1,4 +1,4 @@
-absl-py==0.6.4
+absl-py==0.6.6
 adal==0.5.3
 appnope==0.1.0
 asn1crypto==0.24.0

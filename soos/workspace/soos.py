@@ -100,24 +100,15 @@ class SOOSStructureAPI:
         for i in range(0, SOOSStructureAPI.API_RETRY_COUNT):
             print("data:\n\n", json.dumps(structure_api_data))
             print('x-soos-apikey', soos_context.api_key[:5] + " " + soos_context.api_key[5:], '\nContent-Type', 'application/json')
-            try:
-                
-                api_response = SOOSStructureAPIResponse(
-                    requests.post(
-                        url=api_url,
-                        data=json.dumps(structure_api_data),
-                        headers={'x-soos-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
-                    )
-                )
-                
-                break
 
-            except Exception as e:
-                SOOS.console_log("Structure API Exception Occurred. "
-                      "Attempt " + str(i + 1) + " of " + str(SOOSStructureAPI.API_RETRY_COUNT) + "::" +
-                      "Data: " + str(structure_api_data) + "::" +
-                      "Exception: " + str(e)
+            api_response = SOOSStructureAPIResponse(
+                requests.post(
+                    url=api_url,
+                    data=json.dumps(structure_api_data),
+                    headers={'x-soos-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
                 )
+            )
+
 
         return api_response
 

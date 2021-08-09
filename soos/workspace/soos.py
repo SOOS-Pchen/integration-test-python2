@@ -99,7 +99,7 @@ class SOOSStructureAPI:
 
         for i in range(0, SOOSStructureAPI.API_RETRY_COUNT):
             print("data:\n\n", json.dumps(structure_api_data))
-            print('x-soos-apikey', soos_context.api_key[:5] + soos_context.api_key[5:], '\nContent-Type': 'application/json')
+            print('x-soos-apikey', soos_context.api_key[:5] + soos_context.api_key[5:], '\nContent-Type', 'application/json')
             try:
                 
                 api_response = SOOSStructureAPIResponse(

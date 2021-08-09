@@ -570,7 +570,7 @@ class SOOS:
             content_object = json.loads(response.content)
 
             if response.status_code < 300:
-
+                print("Hey you.....the status code is...." + str(response.status_code))
                 analysis_status = str(content_object["status"])
 
                 if analysis_status.lower() == "finished":

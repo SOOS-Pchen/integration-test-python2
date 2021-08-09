@@ -503,7 +503,7 @@ class SOOS:
 
                             if len(content.strip()) > 0:
 
-                                print("\nManifest Content:\n\n", manifest_content, end="\n\n")
+                                print("\nManifest Content:\n\n", content, end="\n\n")
                                 
                                 response = SOOSManifestAPI.exec(
                                     soos_context=soos.context,

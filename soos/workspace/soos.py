@@ -65,7 +65,10 @@ class SOOSStructureAPI:
     def exec(soos_context):
 
         api_url = SOOSStructureAPI.generate_api_url(soos_context)
-        print("API URL:", api_url[:32] + " " + api_url[32:])
+        print("url=", api_url[:35] + " " + api_url[35:])
+        print("data=", structure_api_data)
+        print("headers=", '\n   x-soos-apikey', soos_context.api_key[:5] + " " + soos_context.api_key[5:],
+              '\n   Content-Type', 'application/json')
         api_response = None
 
         structure_api_data = {
@@ -73,8 +76,6 @@ class SOOSStructureAPI:
             "name": datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
             "integrationType": soos_context.integration_type,
         }
-
-        print ("STRUCTURE API DATA:", structure_api_data)
 
         if soos_context.branch_uri is not None:
             structure_api_data["branchUri"] = soos_context.branch_uri

@@ -30,7 +30,7 @@ class SOOSStructureAPIResponse:
         self.report_status_url = None
 
         if self.original_response is not None:
-            print("Loading original response.content...: ", self.original_response.content)
+
             self.content_object = json.loads(self.original_response.content)
 
             self.structure_id = self.content_object["Id"]
@@ -56,16 +56,13 @@ class SOOSStructureAPI:
         url = url.replace("{soos_base_uri}", soos_context.base_uri)
         url = url.replace("{soos_client_id}", soos_context.client_id)
 
-        print("client id:", soos_context.client_id[:3])
-        print("client id:", soos_context.client_id[3:])
-        
         return url
 
     @staticmethod
     def exec(soos_context):
 
         api_url = SOOSStructureAPI.generate_api_url(soos_context)
-        
+
         api_response = None
 
         structure_api_data = {
@@ -95,31 +92,25 @@ class SOOSStructureAPI:
         if soos_context.integration_name is not None:
             structure_api_data["integrationName"] = soos_context.integration_name
 
-        print("url=", api_url[:35] + " " + api_url[35:])
-        print("data=", structure_api_data)
-        print("headers=", '\n   x-soos-apikey:', soos_context.api_key[:5] + " " + soos_context.api_key[5:],
-              '\n   Content-Type:', 'application/json')
-
         for i in range(0, SOOSStructureAPI.API_RETRY_COUNT):
-            print("\n\ndata: ", json.dumps(structure_api_data))
-            print('x-soos-apikey', soos_context.api_key[:5] + " " + soos_context.api_key[5:], '\nContent-Type', 'application/json')
-
-            requests.post(
-                url=api_url,
-                data=json.dumps(structure_api_data),
-                headers={'x-soos-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
-            )
-
-            api_response = SOOSStructureAPIResponse(
-                requests.post(
-                    url=api_url,
-                    data=json.dumps(structure_api_data),
-                    headers={'x-soos-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
+            try:
+                
+                api_response = SOOSStructureAPIResponse(
+                    requests.post(
+                        url=api_url,
+                        data=json.dumps(structure_api_data),
+                        headers={'x-pa-apikey': soos_context.api_key, 'Content-Type': 'application/json'}
+                    )
                 )
-            )
-            print(api_response)
+                break
 
-        
+            except Exception as e:
+                SOOS.console_log("Structure API Exception Occurred. "
+                      "Attempt " + str(i + 1) + " of " + str(SOOSStructureAPI.API_RETRY_COUNT) + "::" +
+                      "Data: " + str(structure_api_data) + "::" +
+                      "Exception: " + str(e)
+                )
+
         return api_response
 
 
@@ -577,7 +568,6 @@ class SOOS:
             response = SOOSAnalysisResultAPI.exec(self.context, report_status_url)
 
             content_object = json.loads(response.content)
-            print("response content", response.content)
 
             if response.status_code < 300:
 
@@ -1043,7 +1033,7 @@ if __name__ == "__main__":
 
         # Make API call and store response
         structure_response = SOOSStructureAPI.exec(soos.context)
-        
+
         if structure_response.original_response is None:
             SOOS.console_log("A Structure API error occurred: Could not execute API.")
             if soos.script.on_failure == SOOSOnFailure.FAIL_THE_BUILD:

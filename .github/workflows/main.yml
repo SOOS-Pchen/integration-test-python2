@@ -11,7 +11,7 @@ jobs:
     - name: Run SOOS - Scan for vulnerabilities
       uses: SOOS-Pchen/integration-test-python2/github-action@master
       with:
-        project_name: "Awesome Project"
+        project_name: "Here's lookin' at you kid"
         directories_to_exclude: "custom/bin/, custom/etc/bin/"
     env:
         # Visit https://soos.io to get the required tokens to leverage SOOS scanning/analysis services

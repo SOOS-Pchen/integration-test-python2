@@ -1,7 +1,7 @@
 absl-py==0.6.2
 adal==0.5.3
 appnope==0.1.1
-asn1crypto==0.24.1
+asn1crypto==0.24.22
 astor==0.7.1
 azure==3.0.3
 azure-applicationinsights==0.1.0

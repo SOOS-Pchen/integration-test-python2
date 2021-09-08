@@ -1,6 +1,6 @@
 # run soos.py with the -h flag for help
 # REQUIRED ARGS:
-SOOS_PROJECT_NAME="PJ_testing_new_wrapper"
+SOOS_PROJECT_NAME="peijin_loves_python"
 SOOS_REPO="https://api.github.com/repos/soos-io/soos-ci-analysis-python/releases/"
 TAG="latest" #or TAG="latest" if you want the latest release
 
@@ -14,10 +14,10 @@ SOOS_OPERATING_ENVIRONMENT=""      # ENTER OPERATING ENVIRONMENT HERE IF KNOWN (
 SOOS_INTEGRATION_NAME="Script"
 
 # OPTIONAL ARGS:
-WORKSPACE="C:/Users/pchen/Videos/REPO2"
+WORKSPACE="C:\Users\pchen\Testing\integration-test-python2"
 SOOS_MODE="run_and_wait"
 SOOS_ON_FAILURE="fail_the_build"
-SOOS_DIRS_TO_EXCLUDE="soos, stager, booger"
+SOOS_DIRS_TO_EXCLUDE="soos, IgnoreMe"
 SOOS_FILES_TO_EXCLUDE=""
 SOOS_ANALYSIS_RESULT_MAX_WAIT=300
 SOOS_ANALYSIS_RESULT_POLLING_INTERVAL=10

@@ -39,4 +39,4 @@ cd ${WORKSPACE}
 #pip3 install -r soos/workspace/requirements.txt
 
 
-python soos/workspace/soos_dev.py -m="${SOOS_MODE}" -of="${SOOS_ON_FAILURE}" -dte="${SOOS_DIRS_TO_EXCLUDE}" -fte="${SOOS_FILES_TO_EXCLUDE}" -wd="${SOOS_CHECKOUT_DIR}" -buri="${SOOS_API_BASE_URL}" -scp="${SOOS_SOURCECODE_PATH}" -pn="${SOOS_PROJECT_NAME}" 
+python soos/workspace/soos.py -m="${SOOS_MODE}" -of="${SOOS_ON_FAILURE}" -dte="${SOOS_DIRS_TO_EXCLUDE}" -fte="${SOOS_FILES_TO_EXCLUDE}" -wd="${SOOS_CHECKOUT_DIR}" -buri="${SOOS_API_BASE_URL}" -scp="${SOOS_SOURCECODE_PATH}" -pn="${SOOS_PROJECT_NAME}" 

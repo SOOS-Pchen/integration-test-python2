@@ -115,7 +115,7 @@ class SOOSStructureAPI:
                 SOOS.console_log("Structure API Exception Occurred. "
                       "Attempt " + str(i + 1) + " of " + str(SOOSStructureAPI.API_RETRY_COUNT) + "::" +
                       "Data: " + str(structure_api_data) + "::" +
-                      "Exception: " + str("egg")
+                      "Exception: " # + str(e)
                 )
 
         return api_response
@@ -1070,13 +1070,15 @@ if __name__ == "__main__":
                 sys.exit(1)
             else:
                 sys.exit(0)
-        
+        # a response is returned but with original_response status code 
         elif structure_response.original_response.status_code >= 299:
-            if "message" in structure_response.json():
-                structure_json_code = structure_response.json()["code"]
-                structure_json_message = structure_response.json()["message"]
-                SOOS.console_log(f"STRUCTURE API STATUS: {structure_json_code} =====> {structure_json_message} {more_info}")
+            if "message" in structure_response.original_response.json():
+                structure_code = structure_response.original_response.json()["code"]
+                structure_message = structure_response.original_response.json()["message"]
+                SOOS.console_log(f"STRUCTURE API STATUS: {structure_code} =====> {structure_message} {more_info}")
                 sys.exit(1)
+            else:
+                SOOS.console_log("Sorry, there was a Structure API error." + more_info)
             
 
 

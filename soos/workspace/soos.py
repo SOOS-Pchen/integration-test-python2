@@ -111,11 +111,11 @@ class SOOSStructureAPI:
 
                 break
 
-            except:
+            except Exception as e:
                 SOOS.console_log("Structure API Exception Occurred. "
                       "Attempt " + str(i + 1) + " of " + str(SOOSStructureAPI.API_RETRY_COUNT) + "::" +
                       "Data: " + str(structure_api_data) + "::" +
-                      "Exception: " # + str(e)
+                      "Exception: " + str(e)
                 )
 
         return api_response

@@ -525,7 +525,7 @@ class SOOS:
                         
                                     manifest_message = response.json()["message"]
                                     manifest_code = response.json()["code"]
-                                    SOOS.console_log(f"MANIFEST API STATUS: {manifest_code} =====> {manifest_message}")
+                                    SOOS.console_log(f"MANIFEST API STATUS: {response.status_code} || {manifest_code} =====> {manifest_message}")
                                     print()
                                     manifests_found_count += 1 
                                 else:

@@ -1,4 +1,3 @@
-
 import json
 from datetime import datetime
 import sys
@@ -90,12 +89,13 @@ class SOOSStructureAPI:
 
         if soos_context.integration_name is not None:
             structure_api_data["integrationName"] = soos_context.integration_name
-
+        
         for i in range(0, SOOSStructureAPI.API_RETRY_COUNT):
             try:
                 kernel = requests.post(
                         url=api_url,
                         data=json.dumps(structure_api_data),
+                        #files=structure_api_data,
                         headers={'x-soos-apikey': soos_context.api_key, 'Content-Type': 'application/json'})
 
                 if kernel.status_code > 500:
@@ -112,7 +112,7 @@ class SOOSStructureAPI:
                 break
 
             except Exception as e:
-                SOOS.console_log("Structure API Exception Occurred. "
+                SOOS.console_log("A Structure API Exception Occurred. "
                       "Attempt " + str(i + 1) + " of " + str(SOOSStructureAPI.API_RETRY_COUNT) + "::" +
                       "Data: " + str(structure_api_data) + "::" +
                       "Exception: " + str(e)
@@ -368,12 +368,12 @@ class SOOSManifestAPI:
         for i in range(0, SOOSManifestAPI.API_RETRY_COUNT):
             try:
                 SOOS.console_log("*** Putting manifest: " + manifest_name + " :: to: " + api_url)
-
+               #manifest_content is class str, convert to dict 
                 response = requests.put(
                     url=api_url,
-                    data=manifest_content,
+                    files=dict(manifest=manifest_content),
                     headers={'x-soos-apikey': soos.context.api_key,
-                            'Content_type': 'application/json'
+                            'Content_type': 'multipart/form-data'
                     }
                 )
 
@@ -508,6 +508,7 @@ class SOOS:
                         with open(file_name, 'r') as the_file:
 
                             content = the_file.read()
+                            #print("Here is the content", content)
                             if len(content.strip()) > 0:
 
 
@@ -671,7 +672,7 @@ class SOOSAnalysisStartAPI:
                     data="{}",
                     headers={'x-soos-apikey': soos_context.api_key, 
                             'content-length': str(0), 
-                            'Content-Type': 'application/json'}
+                            'Content-Type': 'multipart/form-data'}
                 )
                 
                 break
@@ -1077,8 +1078,10 @@ if __name__ == "__main__":
                 structure_message = structure_response.original_response.json()["message"]
                 SOOS.console_log(f"STRUCTURE API STATUS: {structure_code} =====> {structure_message} {more_info}")
                 sys.exit(1)
-            else:
-                SOOS.console_log("Sorry, there was a Structure API error." + more_info)
+            #fallback in case the if clause doesnt work but there really is a > 299 response that deserves message.
+            else: 
+                SOOS.console_log("A Structure API error occurred: Could not execute API." + more_info)
+                sys.exit(1)
             
 
 

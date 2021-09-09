@@ -372,7 +372,9 @@ class SOOSManifestAPI:
                 response = requests.put(
                     url=api_url,
                     data=manifest_content,
-                    headers={'x-soos-apikey': soos.context.api_key}
+                    headers={'x-soos-apikey': soos.context.api_key,
+                            'Content_type': 'application/json'
+                    }
                 )
 
                 SOOS.console_log("Manifest Put Executed: " + manifest_name)
@@ -667,7 +669,9 @@ class SOOSAnalysisStartAPI:
                 response = requests.put(
                     url=url,
                     data="{}",
-                    headers={'x-soos-apikey': soos_context.api_key, 'content-length': str(0), 'Content-Type': 'application/json'}
+                    headers={'x-soos-apikey': soos_context.api_key, 
+                            'content-length': str(0), 
+                            'Content-Type': 'application/json'}
                 )
                 
                 break

@@ -8,7 +8,6 @@ import argparse
 import time
 import urllib.parse
 import platform
-
 from pathlib import Path  # User Home Folder references
 import requests
 

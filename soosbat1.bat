@@ -19,7 +19,7 @@ set "ROOT=%CD%/soos"
 set "WORKSPACE=%ROOT%/workspace" 
 ::#mkdir "%WORKSPACE%"
 cd %ROOT%
-python -m venv ./
+python -m venv .
 
 cd %WORKSPACE%
 pip3 install -r requirements.txt

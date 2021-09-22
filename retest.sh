@@ -1,6 +1,6 @@
 # run soos.py with the -h flag for help
 # REQUIRED ARGS:
-SOOS_PROJECT_NAME="peijin_testing_lockfiles"
+SOOS_PROJECT_NAME="peijin_testing_betas_config"
 SOOS_LATEST_REPO="https://api.github.com/repos/soos-io/soos-ci-analysis-python/releases/latest"
 # BUILD/BRANCH SPECIFIC ARGS:
 SOOS_COMMIT_HASH=""                # ENTER COMMIT HASH HERE IF KNOWN

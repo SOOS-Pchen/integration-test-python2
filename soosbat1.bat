@@ -1,7 +1,7 @@
 
 :: run soos.py with the -h flag for help
 :: ARGS REQUIRING CUSTOMIZATION:
-set "SOOS_PROJECT_NAME=bat_man_testing"
+set "SOOS_PROJECT_NAME=peijin_branching_out"
 
 :: ARGS WHERE CUSTOMIZATION IS OPTIONAL:
 set "SOOS_MODE=run_and_wait"
@@ -14,11 +14,10 @@ set "SOOS_CHECKOUT_DIR=../"
 
 :: ARGS WHERE CUSTOMIZATION IS OPTIONAL, BUT UNLIKELY:
 set "SOOS_API_BASE_URL=https://dev-api.soos.io/api/"
-
 set "ROOT=%CD%/soos" 
 set "WORKSPACE=%ROOT%/workspace" 
 ::#mkdir "%WORKSPACE%"
-cd %ROOT%
+cd %CD%
 python -m venv .
 
 cd %WORKSPACE%

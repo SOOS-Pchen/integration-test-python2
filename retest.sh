@@ -1,6 +1,6 @@
 # run soos.py with the -h flag for help
 # REQUIRED ARGS:
-SOOS_PROJECT_NAME="peijin_testing_betas_config"
+SOOS_PROJECT_NAME="peijin_branching_out"
 SOOS_LATEST_REPO="https://api.github.com/repos/soos-io/soos-ci-analysis-python/releases/latest"
 # BUILD/BRANCH SPECIFIC ARGS:
 SOOS_COMMIT_HASH=""                # ENTER COMMIT HASH HERE IF KNOWN
@@ -39,4 +39,4 @@ cd ${WORKSPACE}
 #pip3 install -r soos/workspace/requirements.txt
 
 
-python soos/workspace/soos.py -m="${SOOS_MODE}" -of="${SOOS_ON_FAILURE}" -dte="${SOOS_DIRS_TO_EXCLUDE}" -fte="${SOOS_FILES_TO_EXCLUDE}" -wd="${SOOS_CHECKOUT_DIR}" -buri="${SOOS_API_BASE_URL}" -scp="${SOOS_SOURCECODE_PATH}" -pn="${SOOS_PROJECT_NAME}" 
+python soos/workspace/soos.py -m="${SOOS_MODE}" -of="${SOOS_ON_FAILURE}" -dte="${SOOS_DIRS_TO_EXCLUDE}" -fte="${SOOS_FILES_TO_EXCLUDE}" -wd="${SOOS_CHECKOUT_DIR}" -buri="${SOOS_API_BASE_URL}" -scp="${SOOS_SOURCECODE_PATH}" -pn="${SOOS_PROJECT_NAME}"

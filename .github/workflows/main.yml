@@ -1,0 +1,16 @@
+on: [push]
+ 
+jobs:
+  soos_dast_analysis_example:
+    name: SOOS DAST Analysis Example
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run SOOS DAST Analysis
+        uses: soos-io/dast@v1
+        with:
+          client_id: ${{ secrets.SOOS_CLIENT_ID }}
+          api_key: ${{ secrets.SOOS_API_KEY }}
+          project_name: <Project Name>
+          scan_mode: baseline # "baseline", fullscan, or apiscan
+          #apiscan_format: ‘openapi’ # Mandatory if you select apiscan mode 
+          target_url: https://brokencrystals.com

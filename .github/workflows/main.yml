@@ -10,7 +10,7 @@ jobs:
         with:
           client_id: ${{ secrets.SOOS_CLIENT_ID }}
           api_key: ${{ secrets.SOOS_API_KEY }}
-          project_name: <Project Name>
+          project_name: "PEIJIN TESTING GITHUB ACTIONS"
           scan_mode: baseline # "baseline", fullscan, or apiscan
           #apiscan_format: ‘openapi’ # Mandatory if you select apiscan mode 
           target_url: https://brokencrystals.com

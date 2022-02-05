@@ -87,7 +87,7 @@ keyring==12.2.1
 msrest==0.4.29
 msrestazure==0.4.31
 mysql-connector==2.2.9
-numpy==1.15.4
+numpy==1.22.2
 oauthlib==2.0.7
 pycparser==2.18
 PyJWT==1.6.3

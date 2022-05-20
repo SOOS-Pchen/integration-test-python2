@@ -90,7 +90,7 @@ mysql-connector==2.2.9
 numpy==1.15.4
 oauthlib==2.0.7
 pycparser==2.18
-PyJWT==1.6.3
+PyJWT==2.4.0
 python-dateutil==2.7.3
 python-http-client==3.1.0
 pytz==2018.5

@@ -70,11 +70,11 @@ azure-nspkg==2.0.0
 azure-servicebus==0.21.1
 azure-servicefabric==6.1.2.9
 azure-servicemanagement-legacy==0.20.6
-azure-storage-blob==1.1.0
+azure-storage-blob==12.13.0
 azure-storage-common==1.1.0
 azure-storage-file==1.1.0
 azure-storage-nspkg==3.0.0
-azure-storage-queue==1.1.0
+azure-storage-queue==12.4.0
 certifi==2018.4.16
 cffi==1.11.5
 chardet==3.0.4
